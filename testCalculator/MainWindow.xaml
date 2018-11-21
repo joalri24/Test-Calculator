@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:testCalculator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="350" MinWidth="200">
+        Title="MainWindow" Height="500" Width="350" MinHeight="300" MinWidth="200">
     
-    <Grid Background="Beige">
+    <Grid Background="BlanchedAlmond">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
@@ -20,11 +20,11 @@
         <TextBlock  Grid.Row="0" HorizontalAlignment="Center" Margin="0 10 0 0" FontSize="18" FontWeight="Bold">CALCULATOR </TextBlock>
         
         <!-- Screen -->
-        <TextBox  Grid.Row="1" Margin="5 10 5 10" BorderBrush="Gray" BorderThickness="1" Height="50" MaxLines="1" IsEnabled="False"></TextBox>
-        
+        <TextBox  Grid.Row="1" x:Name="screen" Margin="5 10 5 10" BorderBrush="Gray" BorderThickness="1" Height="50" MaxLines="1" IsEnabled="False"></TextBox>
+
         <!-- Keyboard -->
-        <Grid  Grid.Row="2" Margin="5 10 5 0"> 
-            
+        <Grid  Grid.Row="2" Margin="5 10 5 0">
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -38,25 +38,24 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            
-            <Button  Grid.Row="0" Grid.Column="2" Margin="1">DEL</Button>
-            <Button  Grid.Row="0" Grid.Column="3" Margin="1 1 0 1">+</Button>
 
-            <Button  Grid.Row="1" Grid.Column="0" Margin="0 1 1 1" >7</Button>
-            <Button  Grid.Row="1" Grid.Column="1" Margin="1">8</Button>
-            <Button  Grid.Row="1" Grid.Column="2" Margin="1">9</Button>
-            <Button  Grid.Row="1" Grid.Column="3" Margin="1 1 0 1">-</Button>
+            <Button  Grid.Row="0" Grid.Column="2" Margin="1"       Click="ClearButton_Click">DEL</Button>
+            <Button  Grid.Row="0" Grid.Column="3" Margin="1 1 0 1" Click="OperatorButton_Click">+</Button>
 
-            <Button  Grid.Row="2" Grid.Column="0" Margin="0 1 1 1" >4</Button>
-            <Button  Grid.Row="2" Grid.Column="1" Margin="1">5</Button>
-            <Button  Grid.Row="2" Grid.Column="2" Margin="1">6</Button>
-            <Button  Grid.Row="2" Grid.Column="3" Margin="1 1 0 1">X</Button>
+            <Button  Grid.Row="1" Grid.Column="0" Margin="0 1 1 1" Click="NumberButton_Click">7</Button>
+            <Button  Grid.Row="1" Grid.Column="1" Margin="1"       Click="NumberButton_Click">8</Button>
+            <Button  Grid.Row="1" Grid.Column="2" Margin="1"       Click="NumberButton_Click">9</Button>
+            <Button  Grid.Row="1" Grid.Column="3" Margin="1 1 0 1" Click="OperatorButton_Click">-</Button>
 
-            <Button  Grid.Row="3" Grid.Column="0" Margin="0 1 1 1" >1</Button>
-            <Button  Grid.Row="3" Grid.Column="1" Margin="1">2</Button>
-            <Button  Grid.Row="3" Grid.Column="2" Margin="1">3</Button>
-            <Button  Grid.Row="3" Grid.Column="3" Margin="1 1 0 1">/</Button>
+            <Button  Grid.Row="2" Grid.Column="0" Margin="0 1 1 1" Click="NumberButton_Click">4</Button>
+            <Button  Grid.Row="2" Grid.Column="1" Margin="1"       Click="NumberButton_Click">5</Button>
+            <Button  Grid.Row="2" Grid.Column="2" Margin="1"       Click="NumberButton_Click">6</Button>
+            <Button  Grid.Row="2" Grid.Column="3" Margin="1 1 0 1" Click="OperatorButton_Click">X</Button>
 
+            <Button  Grid.Row="3" Grid.Column="0" Margin="0 1 1 1" Click="NumberButton_Click">1</Button>
+            <Button  Grid.Row="3" Grid.Column="1" Margin="1"       Click="NumberButton_Click">2</Button>
+            <Button  Grid.Row="3" Grid.Column="2" Margin="1"       Click="NumberButton_Click">3</Button>
+            <Button  Grid.Row="3" Grid.Column="3" Margin="1 1 0 1" Click="OperatorButton_Click">/</Button>
         </Grid>
 
         <Grid Grid.Row="3"  Margin="4 1 5 4">
@@ -65,12 +64,12 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" Margin="1">0</Button>
-            <Button Grid.Column="1" Margin="1">ANS</Button>
+            <Button Grid.Column="0" Margin="1" Click="NumberButton_Click">0</Button>
+            <Button Grid.Column="1" Margin="1" Click="AnswerButton_Click">ANS</Button>
         </Grid>
 
         <!-- /Keyboard -->
-        
-        
+
+
     </Grid>
 </Window>

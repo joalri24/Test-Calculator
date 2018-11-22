@@ -38,6 +38,7 @@ namespace testCalculator
         private void ClearButton_Click(object sender, RoutedEventArgs e)
         {
             this.screen.Text = string.Empty;
+            this.operationText.Text = string.Empty;
         }
 
         private void OperatorButton_Click(object sender, RoutedEventArgs e)
@@ -63,8 +64,11 @@ namespace testCalculator
                     calculator.operation = Calculator.Operators.division;
                     break;
                 default:
-                    break;
+                    return;
             }
+
+            this.operationText.Text = $"{calculator.firstValue} {operation} ";
+
         }
 
         private void AnswerButton_Click(object sender, RoutedEventArgs e)
@@ -74,6 +78,7 @@ namespace testCalculator
 
             calculator.secondValue = Convert.ToSingle(this.screen.Text);
             screen.Text = "" + calculator.Calculate();
+            operationText.Text = string.Empty;
             calculator.Clear();
         }
 
